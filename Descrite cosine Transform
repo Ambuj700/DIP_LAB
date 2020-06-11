@@ -1,0 +1,95 @@
+# Importing Required Libraries
+import numpy as np
+import math 
+
+# Defining a function to compute Discrete Cosine Transform (DCT) of a Matrix
+def dct(input_matrix):
+    
+    # Length of Input Matrix
+    n = len(input_matrix)
+
+    # Output Matrix
+    output_matrix = np.zeros([n,n])
+    
+    # Applying DCT algorithm
+    for i in range(n):
+        for j in range(n):
+            if(i==0):
+                output_matrix[i][j]=np.power(1/input_matrix[i][j],0.5)
+            else:
+                output_matrix[i][j]=np.power(2/n,0.5)*np.cos(((2*i+1)*math.pi*j)/(2*n))
+                
+    # Printing Output Matrix
+    print('\nOutput Matrix :\n',output_matrix)
+
+# No. of rows and columns of input matrix
+N = int(input("Enter Number of rows and column : "))
+
+# Randomly generating input matrix of size NxN
+input_matrix = np.uint8(np.random.rand(N,N)*100)   
+
+# Printing Input Matrix
+print('\nInput Matrix :\n',input_matrix)
+
+# Computing DCT of input matrix by calling dct(input_matrix) function
+dct(input_matrix)
+
+Output:-
+Enter Number of rows and column : 4
+
+Input Matrix :
+ [[65 92 76 91]
+ [47 62 29 21]
+ [46 10 83 74]
+ [47 66 39 12]]
+
+Output Matrix :
+ [[ 0.12403473  0.10425721  0.11470787  0.10482848]
+ [ 0.70710678  0.27059805 -0.5        -0.65328148]
+ [ 0.70710678 -0.27059805 -0.5         0.65328148]
+ [ 0.70710678 -0.65328148  0.5        -0.27059805]]
+
+# No. of rows and columns of input matrix
+N = int(input("Enter Number of rows and column : "))
+
+# Randomly generating input matrix of size NxN
+input_matrix = np.uint8(np.random.rand(N,N)*100)   
+
+# Printing Input Matrix
+print('\nInput Matrix :\n',input_matrix)
+
+# Computing DCT of input matrix by calling dct(input_matrix) function
+dct(input_matrix)
+
+
+Enter Number of rows and column : 8
+
+Input Matrix :
+ [[91 29 51 64 21 89 23 23]
+ [13 17 13 56 15 61  2 32]
+ [15 50 75 53 13 15 12 96]
+ [23 43 93 54 23 36 94 79]
+ [80 71 79 89  5  9 16 57]
+ [38 71 92 63  4 54  7 94]
+ [ 1 34 47 80 34 49 89 19]
+ [74 99 43 85  6 95 92 48]]
+
+Output Matrix :
+ [[ 0.10482848  0.18569534  0.14002801  0.125       0.21821789  0.10599979
+   0.20851441  0.20851441]
+ [ 0.5         0.41573481  0.19134172 -0.09754516 -0.35355339 -0.49039264
+  -0.46193977 -0.27778512]
+ [ 0.5         0.27778512 -0.19134172 -0.49039264 -0.35355339  0.09754516
+   0.46193977  0.41573481]
+ [ 0.5         0.09754516 -0.46193977 -0.27778512  0.35355339  0.41573481
+  -0.19134172 -0.49039264]
+ [ 0.5        -0.09754516 -0.46193977  0.27778512  0.35355339 -0.41573481
+  -0.19134172  0.49039264]
+ [ 0.5        -0.27778512 -0.19134172  0.49039264 -0.35355339 -0.09754516
+   0.46193977 -0.41573481]
+ [ 0.5        -0.41573481  0.19134172  0.09754516 -0.35355339  0.49039264
+  -0.46193977  0.27778512]
+ [ 0.5        -0.49039264  0.46193977 -0.41573481  0.35355339 -0.27778512
+   0.19134172 -0.09754516]]
+
+
